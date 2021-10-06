@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { sepeteEkle } from "../actions/action";
+
 const Products = (props) => {
   return (
     <div>
@@ -17,7 +18,7 @@ const Products = (props) => {
             <h4>{book.name}</h4>
             <p>Yazar: {book.author}</p>
             <p>Fiyat: &#8378;{book.price}</p>
-            <button onClick={()=> props.sepeteEkle(book)}>Sepete Ekle</button>
+            <button onClick={() => props.sepeteEkle(book)}>Sepete Ekle</button>
           </div>
         </div>
       ))}
@@ -28,8 +29,7 @@ const Products = (props) => {
 const mapStateToProps = (state) => {
   return {
     bookList: state.bookList,
-    cart:state.cart
+    cart: state.cart,
   };
 };
-
 export default connect(mapStateToProps, { sepeteEkle })(Products);
